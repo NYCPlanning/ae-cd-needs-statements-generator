@@ -15,6 +15,7 @@ import CommunityDistrictOverview from "./templates/community_district_overview";
 import Top3Issues from "./templates/top_3_issues";
 import NeedsGroup from "./templates/needs_group";
 import BudgetRequestsList from "./templates/budget_requests_list";
+import NeedsGroupBudgetRequestsList from "./templates/needs_group_budget_requests_list";
 
 export default function Home() {
   const [selectedCB, setSelectedCB] = useState("SI99");
@@ -82,49 +83,49 @@ export default function Home() {
           <SectionHeader fontSize="1.5rem" sectionName="Healthcare and Human Services" />
           <NeedsGroup cb={cb} group="Healthcare and Human Services" />
           <PageBreak />
-          <BudgetRequestsList brs={brs} section="Health Care and Human Services" />
+          <NeedsGroupBudgetRequestsList brs={brs} section="Health Care and Human Services" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Youth, Education and Child Welfare" />
           <NeedsGroup cb={cb} group="Youth, Education and Child Welfare" />
           <PageBreak />
-          <BudgetRequestsList brs={brs} section="Youth, Education, and Child Welfare" />
+          <NeedsGroupBudgetRequestsList brs={brs} section="Youth, Education, and Child Welfare" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Public Safety and Emergency Services" />
           <NeedsGroup cb={cb} group="Public Safety and Emergency Services" />
           <PageBreak />
-          <BudgetRequestsList brs={brs} section="Public Safety and Emergency Services" />
+          <NeedsGroupBudgetRequestsList brs={brs} section="Public Safety and Emergency Services" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Core Infrastructure, City Services and Resiliency" />
           <NeedsGroup cb={cb} group="Core Infrastructure, City Services and Resiliency" />
           <PageBreak />
-          <BudgetRequestsList brs={brs} section="Core Infrastructure, City Services, and Resiliency" />
+          <NeedsGroupBudgetRequestsList brs={brs} section="Core Infrastructure, City Services, and Resiliency" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Housing, Economic Development and Land Use" />
           <NeedsGroup cb={cb} group="Housing, Economic Development and Land Use" />
           <PageBreak />
-          <BudgetRequestsList brs={brs} section="Housing, Economic Development, and Land Use" />
+          <NeedsGroupBudgetRequestsList brs={brs} section="Housing, Economic Development, and Land Use" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Transportation and Mobility" />
           <NeedsGroup cb={cb} group="Transportation and Mobility" />
           <PageBreak />
-          <BudgetRequestsList brs={brs} section="Transportation and Mobility" />
+          <NeedsGroupBudgetRequestsList brs={brs} section="Transportation and Mobility" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Parks, Cultural and Other Community Facilities" />
           <NeedsGroup cb={cb} group="Parks, Cultural and Other Community Facilities" />
           <PageBreak />
-          <BudgetRequestsList brs={brs} section="Parks, Cultural, and Other Community Facilities" />
+          <NeedsGroupBudgetRequestsList brs={brs} section="Parks, Cultural, and Other Community Facilities" />
 
         <PageBreak />
 
         <SectionHeader sectionName="6. Other Budget Requests" />
           <p>Does anything else go here?  anyNeedsNotDetailedInThePrecedingPolicyArea and anyAdditionalCommentsRelatedToYourDistrictsNeedsAndBudgetRequests are unused</p>
-          <BudgetRequestsList brs={brs} section="Other Needs" />
+          <NeedsGroupBudgetRequestsList brs={brs} section="Other Needs" />
         <PageBreak />
 
         <SectionHeader sectionName="7. Summary of Prioritized Budget Requests" />
