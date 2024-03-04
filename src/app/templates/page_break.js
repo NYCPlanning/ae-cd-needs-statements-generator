@@ -14,10 +14,12 @@ export default function PageBreak() {
       </div>
       <div className="line-break">
         <table>
-          <tr>
-            <td style={{width: "49%"}}>{ reportTitle }</td>
-            <td style={{width: "49%"}} align='right'>{ cd.district }</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td style={{width: "49%"}}>{ reportTitle }</td>
+              <td style={{width: "49%"}} align='right'>{ cd.district }</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </>

@@ -27,12 +27,12 @@ export default function BudgetRequestsList(props) {
 						<tbody>
 							{
 								capital.map((br, i) =>
-									<BudgetRequest br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} />
+									<BudgetRequest br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
 								)
 							}
 							{
 								continuedSupport.map((br, i) =>
-									<BudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} />
+									<BudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
 								)
 							}
 						</tbody>
@@ -59,7 +59,7 @@ export default function BudgetRequestsList(props) {
 							{
 
 									expense.map((br, i) =>
-										<BudgetRequest br={br} priority={`${i+1} / ${expense.length}`} k={`${props.section}${br.responseId}`} />
+										<BudgetRequest br={br} priority={`${i+1} / ${expense.length}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
 									)
 									
 							}

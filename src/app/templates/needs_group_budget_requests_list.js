@@ -13,11 +13,14 @@ export default function NeedsGroupBudgetRequestsList(props) {
 	return (
 		<>
 			<SectionHeader fontSize="1.25rem" sectionName="Capital Budget Requests" noBorder={true} />
+			<p style={{fontStyle: "italic"}}>Note: Please see Section 7 for the full content of each request</p>
+
 			<div className="widget-requests">
 				{	(capital.length || continuedSupport.length) ? (
 					<table className="table widget_request_table" style={{tableLayout: "fixed"}}>
 						<thead><tr>
 							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
+							<th style={{padding: "0.25rem 0.75rem", width: "12%"}}>Agency</th>
 							<th style={{padding: "0.25rem 0.75rem"}}>Title</th>
 						</tr></thead>
 						<tbody>
@@ -26,6 +29,7 @@ export default function NeedsGroupBudgetRequestsList(props) {
 									// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} />
 									<tr key={`${props.section}${br.responseId}`}>
 										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>{`${i+1} / ${capital.length}`}</td>
+										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
 										<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
 									</tr>
 								)
@@ -35,6 +39,7 @@ export default function NeedsGroupBudgetRequestsList(props) {
 									// <NeedsGroupBudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} />
 									<tr key={`${props.section}${br.responseId}`} className="abbreviated-request-list">
 										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>CS</td>
+										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
 										<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
 									</tr>
 								)
@@ -54,6 +59,7 @@ export default function NeedsGroupBudgetRequestsList(props) {
 						
 						<thead><tr>
 							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
+							<th style={{padding: "0.25rem 0.75rem", width: "12%"}}>Agency</th>
 							<th style={{padding: "0.25rem 0.75rem"}}>Title</th>
 						</tr></thead>
 						<tbody>
@@ -63,6 +69,7 @@ export default function NeedsGroupBudgetRequestsList(props) {
 										// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${expense.length}`} k={`${props.section}${br.responseId}`} />
 										<tr key={`${props.section}${br.responseId}`}>
 											<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>{`${i+1} / ${expense.length}`}</td>
+											<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
 											<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
 										</tr>
 									)

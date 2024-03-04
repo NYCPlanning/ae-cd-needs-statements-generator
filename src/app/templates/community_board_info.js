@@ -10,34 +10,38 @@ export default function CommunityBoardInfo(props) {
       <div className="row">
         <div className="col-6">
           <table>
-            <tr>
-              <td>Address: </td>
-              <td>{props.cb.communityBoardOfficeAddress}</td>
-            </tr>
-            <tr>
-              <td>Phone: </td>
-              <td>{props.cb.communityBoardOfficePhoneNumber}</td>
-            </tr>
-            <tr>
-              <td>Email: </td>
-              <td>{props.cb.communityBoardOfficeEmailAddress}</td>
-            </tr>
-            <tr>
-              <td>Website: </td>
-              <td>{props.cb.communityBoardWebsiteUrl}</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>Address: </td>
+                <td>{props.cb.communityBoardOfficeAddress}</td>
+              </tr>
+              <tr>
+                <td>Phone: </td>
+                <td>{props.cb.communityBoardOfficePhoneNumber}</td>
+              </tr>
+              <tr>
+                <td>Email: </td>
+                <td>{props.cb.communityBoardOfficeEmailAddress}</td>
+              </tr>
+              <tr>
+                <td>Website: </td>
+                <td>{props.cb.communityBoardWebsiteUrl}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div className="col-6">
           <table>
-            <tr>
-              <td>Chair: </td>
-              <td>{props.cb.communityBoardChair}</td>
-            </tr>
-            <tr>
-              <td>District Manager: </td>
-              <td>{props.cb.districtManager}</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>Chair: </td>
+                <td>{props.cb.communityBoardChair}</td>
+              </tr>
+              <tr>
+                <td>District Manager: </td>
+                <td>{props.cb.districtManager}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>

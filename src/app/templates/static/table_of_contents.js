@@ -1,4 +1,4 @@
-export default function TableOfContents() {
+export default function TableOfContents(props) {
   return (
     <>
   <p>The Anchor Links in here need to be updated</p>
@@ -144,7 +144,7 @@ export default function TableOfContents() {
             <td style={{
               fontSize: '1rem'
             }} className="pb-1 pt-1">
-              <a className="print-black" href="#preview_widget_1360238">6. Other Budget Requests</a>
+              <a className="print-black" href="#preview_widget_1360238">{props.additionalComments ? "6. Additional Comments and Other Budget Requests" : "6. Other Budget Requests"}</a>
             </td>
           </tr>
           <tr style={{

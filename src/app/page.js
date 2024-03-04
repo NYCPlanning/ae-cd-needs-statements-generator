@@ -32,7 +32,7 @@ export default function Home() {
             <select className="noprint" name="district" onChange={(e) => setSelectedCB(e.target.value)}>
               <option value="-1"> - Select District - </option>
               {allStatements.map((statement) => (
-                <option value={statement.communityBoardID}>{statement.communityBoardID}</option> 
+                <option value={statement.communityBoardID} key={statement.communityBoardID}>{statement.communityBoardID}</option> 
               ))}
               {/* {% for d in districts %}
               <option value="{{ d.getId }}"{% if district and district.getId == d.getId %} selected{% endif %}>{{ d.getTitle }}</option>
@@ -60,7 +60,7 @@ export default function Home() {
         <PageBreak />
 
         <SectionHeader sectionName="Table of Contents" />
-        <TableOfContents />
+        <TableOfContents additionalComments={cb.anyAdditionalCommentsRelatedToYourDistrictsNeedsAndBudgetRequests.length ? true : false} />
         <PageBreak />
 
         <SectionHeader sectionName="1. Community Board Information" />
@@ -83,48 +83,57 @@ export default function Home() {
           <SectionHeader fontSize="1.5rem" sectionName="Healthcare and Human Services" />
           <NeedsGroup cb={cb} group="Healthcare and Human Services" />
           <PageBreak />
+          <SectionHeader fontSize="1.5rem" sectionName="Healthcare and Human Services" />
           <NeedsGroupBudgetRequestsList brs={brs} section="Health Care and Human Services" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Youth, Education and Child Welfare" />
           <NeedsGroup cb={cb} group="Youth, Education and Child Welfare" />
           <PageBreak />
+          <SectionHeader fontSize="1.5rem" sectionName="Youth, Education and Child Welfare" />
           <NeedsGroupBudgetRequestsList brs={brs} section="Youth, Education, and Child Welfare" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Public Safety and Emergency Services" />
           <NeedsGroup cb={cb} group="Public Safety and Emergency Services" />
           <PageBreak />
+          <SectionHeader fontSize="1.5rem" sectionName="Public Safety and Emergency Services" />
           <NeedsGroupBudgetRequestsList brs={brs} section="Public Safety and Emergency Services" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Core Infrastructure, City Services and Resiliency" />
           <NeedsGroup cb={cb} group="Core Infrastructure, City Services and Resiliency" />
           <PageBreak />
+          <SectionHeader fontSize="1.5rem" sectionName="Core Infrastructure, City Services and Resiliency" />
           <NeedsGroupBudgetRequestsList brs={brs} section="Core Infrastructure, City Services, and Resiliency" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Housing, Economic Development and Land Use" />
           <NeedsGroup cb={cb} group="Housing, Economic Development and Land Use" />
           <PageBreak />
+          <SectionHeader fontSize="1.5rem" sectionName="Housing, Economic Development and Land Use" />
           <NeedsGroupBudgetRequestsList brs={brs} section="Housing, Economic Development, and Land Use" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Transportation and Mobility" />
           <NeedsGroup cb={cb} group="Transportation and Mobility" />
           <PageBreak />
+          <SectionHeader fontSize="1.5rem" sectionName="Transportation and Mobility" />
           <NeedsGroupBudgetRequestsList brs={brs} section="Transportation and Mobility" />
           <PageBreak />
 
           <SectionHeader fontSize="1.5rem" sectionName="Parks, Cultural and Other Community Facilities" />
           <NeedsGroup cb={cb} group="Parks, Cultural and Other Community Facilities" />
           <PageBreak />
+          <SectionHeader fontSize="1.5rem" sectionName="Parks, Cultural and Other Community Facilities" />
           <NeedsGroupBudgetRequestsList brs={brs} section="Parks, Cultural, and Other Community Facilities" />
 
         <PageBreak />
 
-        <SectionHeader sectionName="6. Other Budget Requests" />
-          <p>Does anything else go here?  anyNeedsNotDetailedInThePrecedingPolicyArea and anyAdditionalCommentsRelatedToYourDistrictsNeedsAndBudgetRequests are unused</p>
+        <SectionHeader sectionName={cb.anyAdditionalCommentsRelatedToYourDistrictsNeedsAndBudgetRequests.length ? "6. Additional Comments and Other Budget Requests" : "6. Other Budget Requests"} />
+        {cb.anyAdditionalCommentsRelatedToYourDistrictsNeedsAndBudgetRequests.length ? 
+          (<p>{cb.anyAdditionalCommentsRelatedToYourDistrictsNeedsAndBudgetRequests}</p>) :
+          "" }
           <NeedsGroupBudgetRequestsList brs={brs} section="Other Needs" />
         <PageBreak />
 
