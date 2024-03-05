@@ -8,9 +8,11 @@ export default function SectionHeader(props) {
     noBorder: props.noBorder ? props.noBorder : false
   }
 
+  // const id = (props.sectionName[1] === ".") ? (props.sectionName.toLowerCase().replaceAll(" ", "_").replaceAll(",", "").slice(3)) : (props.sectionName.toLowerCase().replaceAll(" ", "_").replaceAll(",", ""))
+
   return(
     <>
-      <div href="#section_widgets_{{ section.getId }}">
+      <div id={props.id ? props.id : null}>
         <h5 className="mb-2" style={{
           display: "flex",
           justifyContent: "space-between",

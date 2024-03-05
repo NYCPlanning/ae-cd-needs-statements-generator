@@ -1,9 +1,8 @@
 // Based upon templates/dcp/widgets/requests_widget_main.html.twig
 
 import SectionHeader from "./section_header"
-import BudgetRequest from "./budget_request";
 
-export default function BudgetRequestsList(props) {
+export default function NeedsGroupBudgetRequestsList(props) {
 	// Filter the list of brs to the section, if necessary
 	const brs = props.section ? props.brs.filter((request) => request.policyArea === props.section) : props.brs;
 
@@ -13,26 +12,36 @@ export default function BudgetRequestsList(props) {
 
 	return (
 		<>
+			<p style={{fontStyle: "italic"}}>Note: Please see Section 7 for the full content of each request</p>
 			<SectionHeader fontSize="1.25rem" sectionName="Capital Budget Requests" noBorder={true} />
+
 			<div className="widget-requests">
 				{	(capital.length || continuedSupport.length) ? (
-					<table className="table mt-4 widget_request_table" style={{tableLayout: "fixed"}}>
+					<table className="table widget_request_table" style={{tableLayout: "fixed"}}>
 						<thead><tr>
-							<th width="15%">Title</th>
-							<th width="10%">Priority</th>
-							<th width="10%">Agency</th>
-							<th width="21%">Request</th>
-							<th>Explanation</th>
+							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
+							<th style={{padding: "0.25rem 0.75rem", width: "12%"}}>Agency</th>
+							<th style={{padding: "0.25rem 0.75rem"}}>Title</th>
 						</tr></thead>
 						<tbody>
 							{
 								capital.map((br, i) =>
-									<BudgetRequest br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+									// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} />
+									<tr key={`${props.section}${br.responseId}`}>
+										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>{`${i+1} / ${capital.length}`}</td>
+										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
+										<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
+									</tr>
 								)
 							}
 							{
 								continuedSupport.map((br, i) =>
-									<BudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+									// <NeedsGroupBudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} />
+									<tr key={`${props.section}${br.responseId}`} className="abbreviated-request-list">
+										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>CS</td>
+										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
+										<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
+									</tr>
 								)
 							}
 						</tbody>
@@ -46,20 +55,23 @@ export default function BudgetRequestsList(props) {
 			<SectionHeader fontSize="1.25rem" sectionName="Expense Budget Requests" noBorder={true} />
 			<div className="widget-requests">
 				{ expense.length ? (
-					<table className="table mt-4 widget_request_table" style={{tableLayout: "fixed"}}>
+					<table className="table widget_request_table" style={{tableLayout: "fixed"}}>
 						
 						<thead><tr>
-							<th width="15%">Title</th>
-							<th width="10%">Priority</th>
-							<th width="10%">Agency</th>
-							<th width="21%">Request</th>
-							<th>Explanation</th>
+							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
+							<th style={{padding: "0.25rem 0.75rem", width: "12%"}}>Agency</th>
+							<th style={{padding: "0.25rem 0.75rem"}}>Title</th>
 						</tr></thead>
 						<tbody>
 							{
 
 									expense.map((br, i) =>
-										<BudgetRequest br={br} priority={`${i+1} / ${expense.length}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+										// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${expense.length}`} k={`${props.section}${br.responseId}`} />
+										<tr key={`${props.section}${br.responseId}`}>
+											<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>{`${i+1} / ${expense.length}`}</td>
+											<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
+											<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
+										</tr>
 									)
 									
 							}
