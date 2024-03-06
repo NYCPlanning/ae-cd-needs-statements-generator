@@ -37,8 +37,8 @@ When done, [convert them to json](https://csvjson.com/csv2json) and put them in 
 
 
 ## Errors
-Console error "Warning: Expected server HTML to contain a matching <i> in <a>." is related to implementing [FontAwesome with Next.js](https://fontawesome.com/v5/docs/web/use-with/react#nextjs) that doesn't need to be fixed.  I assume that is what is causing the other issues which are about hydration.
+Console error "Warning: Expected server HTML to contain a matching `<i>` in `<a>`." is related to implementing [FontAwesome with Next.js](https://fontawesome.com/v5/docs/web/use-with/react#nextjs) that doesn't need to be fixed.  I assume that is what is causing the other issues which are about hydration.
 
 
 ## Usage
-Select the community district from the drop-down and hit "Print".  If there is a toast notification in the bottom left about errors, close it before hitting print or there will be shading at the top of each page.
+Open the site in Safari (the links in the Table of Contents do not work if exporting from other browsers).  If there is a toast notification in the bottom left about errors, close it before hitting print or there will be shading at the top of each page.  Select the community district from the drop-down and hit the "Print" button at the bottom of the page.  At the bottom of the print menu, make sure PDF is selected, and then hit print.

@@ -1,5 +1,5 @@
 'use client'
-import Image from "next/image";
+
 import { useState } from "react";
 let allStatements = require("/public/jsondata/statements.json");
 let allBudgetRequests = require("/public/jsondata/brs.json");
@@ -42,7 +42,8 @@ export default function Home() {
         </div>
         <div className="print-button">
           {/* {#<a href="javascript:" title="Download" className="center pdfDownloadReport mr-3" data-id="{{ report.getId }}" data-district_id="{% if district %}{{ district.getId }}{% else %}-1{% endif %}"><i className="fas fa-download"></i> PDF</a>#} */}
-          <a href="javascript:" title="Download" className="center pdfDownloadReport mr-3" data-id="SI99" data-district_id="SI99"><i className="fas fa-download"></i> PDF</a>
+          {/* PDF link below does not actually appear on old site, and does nothing when clicked on this site */}
+          {/* <a href="javascript:" title="Download" className="center pdfDownloadReport mr-3" data-id="SI99" data-district_id="SI99"><i className="fas fa-download"></i> PDFFFFFFF</a> */}
           <a href="javascript:window.print();" title="Print" className="center"><i className="dcp fa-print"></i> Print</a>
         </div>
 
@@ -149,7 +150,8 @@ export default function Home() {
 
         <div className="print-button">
           {/* {#<a href="javascript:" title="Download" className="center pdfDownloadReport mr-3" data-id="{{ report.getId }}" data-district_id="{% if district %}{{ district.getId }}{% else %}-1{% endif %}"><i className="fas fa-download"></i> PDF</a>#} */}
-          <a href="javascript:" title="Download" className="center pdfDownloadReport mr-3" data-id="SI99" data-district_id="SI99"><i className="fas fa-download"></i> PDF</a>
+          {/* PDF link below does not actually appear on old site, and does nothing when clicked on this site */}
+          {/* <a href="javascript:" title="Download" className="center pdfDownloadReport mr-3" data-id="SI99" data-district_id="SI99"><i className="fas fa-download"></i> PDFFFFFFF</a> */}
           <a href="javascript:window.print();" title="Print" className="center"><i className="dcp fa-print"></i> Print</a>
         </div>
       </div>
