@@ -30,20 +30,20 @@ export default function NeedsGroupBudgetRequestsList(props) {
 							{
 								capital.map((br, i) =>
 									// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} />
-									<tr key={`${props.section}${br.responseId}`}>
-										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>{`${br.currentFYRanking} / ${totalCapitalRequests}`}</td>
-										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
-										<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
+									<tr key={`${props.section}${br.responseId}`} id={`${br.responseId}-abbreviated`}>
+										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{`${br.currentFYRanking} / ${totalCapitalRequests}`}</a></td>
+										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}><a href={`#${br.responseId}-full`}>{br.agencyAcronym}</a></td>
+										<td style={{padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{br.budgetRequestTitle}</a></td>
 									</tr>
 								)
 							}
 							{
 								continuedSupport.map((br, i) =>
 									// <NeedsGroupBudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} />
-									<tr key={`${props.section}${br.responseId}`} className="abbreviated-request-list">
-										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>CS</td>
-										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
-										<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
+									<tr key={`${props.section}${br.responseId}`} id={`${br.responseId}-abbreviated`} className="abbreviated-request-list">
+										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>CS</a></td>
+										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}><a href={`#${br.responseId}-full`}>{br.agencyAcronym}</a></td>
+										<td style={{padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{br.budgetRequestTitle}</a></td>
 									</tr>
 								)
 							}
@@ -70,10 +70,10 @@ export default function NeedsGroupBudgetRequestsList(props) {
 
 									expense.map((br, i) =>
 										// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${expense.length}`} k={`${props.section}${br.responseId}`} />
-										<tr key={`${props.section}${br.responseId}`}>
-											<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>{`${br.currentFYRanking} / ${totalExpenseRequests}`}</td>
-											<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
-											<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
+										<tr key={`${props.section}${br.responseId}`} id={`${br.responseId}-abbreviated`}>
+											<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{`${br.currentFYRanking} / ${totalExpenseRequests}`}</a></td>
+											<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}><a href={`#${br.responseId}-full`}>{br.agencyAcronym}</a></td>
+											<td style={{padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{br.budgetRequestTitle}</a></td>
 										</tr>
 									)
 									

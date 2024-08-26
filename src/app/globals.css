@@ -31,3 +31,10 @@ body {
     text-wrap: balance;
   }
 }
+
+@media print {
+  /* All your print styles go here */
+  a {
+    text-decoration: none !important;
+  }
+}
