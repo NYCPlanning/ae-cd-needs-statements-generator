@@ -3,6 +3,9 @@
 import SectionHeader from "./section_header"
 
 export default function NeedsGroupBudgetRequestsList(props) {
+	const totalExpenseRequests = props.brs.filter((request) => request.type === "Expense").length;
+	const totalCapitalRequests = props.brs.length - totalExpenseRequests;
+
 	// Filter the list of brs to the section, if necessary
 	const brs = props.section ? props.brs.filter((request) => request.policyArea === props.section) : props.brs;
 
@@ -28,7 +31,7 @@ export default function NeedsGroupBudgetRequestsList(props) {
 								capital.map((br, i) =>
 									// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} />
 									<tr key={`${props.section}${br.responseId}`}>
-										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>{`${i+1} / ${capital.length}`}</td>
+										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>{`${br.currentFYRanking} / ${totalCapitalRequests}`}</td>
 										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
 										<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
 									</tr>
@@ -68,7 +71,7 @@ export default function NeedsGroupBudgetRequestsList(props) {
 									expense.map((br, i) =>
 										// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${expense.length}`} k={`${props.section}${br.responseId}`} />
 										<tr key={`${props.section}${br.responseId}`}>
-											<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>{`${i+1} / ${expense.length}`}</td>
+											<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>{`${br.currentFYRanking} / ${totalExpenseRequests}`}</td>
 											<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}>{br.agencyAcronym}</td>
 											<td style={{padding: "0.25rem 0.75rem"}}>{br.budgetRequestTitle}</td>
 										</tr>
