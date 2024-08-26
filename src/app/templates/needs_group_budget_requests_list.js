@@ -3,8 +3,8 @@
 import SectionHeader from "./section_header"
 
 export default function NeedsGroupBudgetRequestsList(props) {
+	const totalCapitalRequests = props.brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport !== "Continued Support"))).length;
 	const totalExpenseRequests = props.brs.filter((request) => request.type === "Expense").length;
-	const totalCapitalRequests = props.brs.length - totalExpenseRequests;
 
 	// Filter the list of brs to the section, if necessary
 	const brs = props.section ? props.brs.filter((request) => request.policyArea === props.section) : props.brs;
