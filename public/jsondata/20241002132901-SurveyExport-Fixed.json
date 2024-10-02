@@ -1,5 +1,7 @@
 [
   {
+    "boro": "BX",
+    "boardNumber": 1,
     "responseId": 296,
     "communityBoardID": "BX1",
     "communityBoardChair": "",
@@ -63,6 +65,8 @@
     "cb": "BX1"
   },
   {
+    "boro": "BX",
+    "boardNumber": 2,
     "responseId": 297,
     "communityBoardID": "BX2",
     "communityBoardChair": "",
@@ -126,6 +130,8 @@
     "cb": "BX2"
   },
   {
+    "boro": "BX",
+    "boardNumber": 3,
     "responseId": 298,
     "communityBoardID": "BX3",
     "communityBoardChair": "Joetta Brown",
@@ -189,6 +195,8 @@
     "cb": "BX3"
   },
   {
+    "boro": "BX",
+    "boardNumber": 4,
     "responseId": 299,
     "communityBoardID": "BX4",
     "communityBoardChair": "",
@@ -252,6 +260,8 @@
     "cb": "BX4"
   },
   {
+    "boro": "BX",
+    "boardNumber": 5,
     "responseId": 300,
     "communityBoardID": "BX5",
     "communityBoardChair": "",
@@ -315,6 +325,8 @@
     "cb": "BX5"
   },
   {
+    "boro": "BX",
+    "boardNumber": 6,
     "responseId": 301,
     "communityBoardID": "BX6",
     "communityBoardChair": "",
@@ -378,6 +390,8 @@
     "cb": "BX6"
   },
   {
+    "boro": "BX",
+    "boardNumber": 7,
     "responseId": 302,
     "communityBoardID": "BX7",
     "communityBoardChair": "",
@@ -441,6 +455,8 @@
     "cb": "BX7"
   },
   {
+    "boro": "BX",
+    "boardNumber": 8,
     "responseId": 303,
     "communityBoardID": "BX8",
     "communityBoardChair": "",
@@ -504,6 +520,8 @@
     "cb": "BX8"
   },
   {
+    "boro": "BX",
+    "boardNumber": 9,
     "responseId": 304,
     "communityBoardID": "BX9",
     "communityBoardChair": "",
@@ -567,6 +585,8 @@
     "cb": "BX9"
   },
   {
+    "boro": "BX",
+    "boardNumber": 10,
     "responseId": 305,
     "communityBoardID": "BX10",
     "communityBoardChair": "",
@@ -630,6 +650,8 @@
     "cb": "BX10"
   },
   {
+    "boro": "BX",
+    "boardNumber": 11,
     "responseId": 306,
     "communityBoardID": "BX11",
     "communityBoardChair": "",
@@ -693,6 +715,8 @@
     "cb": "BX11"
   },
   {
+    "boro": "BX",
+    "boardNumber": 12,
     "responseId": 307,
     "communityBoardID": "BX12",
     "communityBoardChair": "",
@@ -756,6 +780,8 @@
     "cb": "BX12"
   },
   {
+    "boro": "BK",
+    "boardNumber": 1,
     "responseId": 308,
     "communityBoardID": "BK1",
     "communityBoardChair": "",
@@ -819,6 +845,8 @@
     "cb": "BK1"
   },
   {
+    "boro": "BK",
+    "boardNumber": 2,
     "responseId": 309,
     "communityBoardID": "BK2",
     "communityBoardChair": "Lenny Singletary",
@@ -882,6 +910,8 @@
     "cb": "BK2"
   },
   {
+    "boro": "BK",
+    "boardNumber": 3,
     "responseId": 310,
     "communityBoardID": "BK3",
     "communityBoardChair": "",
@@ -945,6 +975,8 @@
     "cb": "BK3"
   },
   {
+    "boro": "BK",
+    "boardNumber": 4,
     "responseId": 311,
     "communityBoardID": "BK4",
     "communityBoardChair": "Robert Camacho",
@@ -1008,6 +1040,8 @@
     "cb": "BK4"
   },
   {
+    "boro": "BK",
+    "boardNumber": 5,
     "responseId": 312,
     "communityBoardID": "BK5",
     "communityBoardChair": "",
@@ -1071,6 +1105,8 @@
     "cb": "BK5"
   },
   {
+    "boro": "BK",
+    "boardNumber": 6,
     "responseId": 313,
     "communityBoardID": "BK6",
     "communityBoardChair": "",
@@ -1134,6 +1170,8 @@
     "cb": "BK6"
   },
   {
+    "boro": "BK",
+    "boardNumber": 7,
     "responseId": 314,
     "communityBoardID": "BK7",
     "communityBoardChair": "",
@@ -1197,6 +1235,8 @@
     "cb": "BK7"
   },
   {
+    "boro": "BK",
+    "boardNumber": 8,
     "responseId": 315,
     "communityBoardID": "BK8",
     "communityBoardChair": "Ms. Irsa Weatherspoon",
@@ -1260,6 +1300,8 @@
     "cb": "BK8"
   },
   {
+    "boro": "BK",
+    "boardNumber": 9,
     "responseId": 316,
     "communityBoardID": "BK9",
     "communityBoardChair": "Fred Baptiste",
@@ -1323,6 +1365,8 @@
     "cb": "BK9"
   },
   {
+    "boro": "BK",
+    "boardNumber": 10,
     "responseId": 317,
     "communityBoardID": "BK10",
     "communityBoardChair": "",
@@ -1386,6 +1430,8 @@
     "cb": "BK10"
   },
   {
+    "boro": "BK",
+    "boardNumber": 11,
     "responseId": 318,
     "communityBoardID": "BK11",
     "communityBoardChair": "Laurie Windsor",
@@ -1449,6 +1495,8 @@
     "cb": "BK11"
   },
   {
+    "boro": "BK",
+    "boardNumber": 12,
     "responseId": 319,
     "communityBoardID": "BK12",
     "communityBoardChair": "",
@@ -1512,6 +1560,8 @@
     "cb": "BK12"
   },
   {
+    "boro": "BK",
+    "boardNumber": 13,
     "responseId": 320,
     "communityBoardID": "BK13",
     "communityBoardChair": "Jeff Sanoff",
@@ -1575,6 +1625,8 @@
     "cb": "BK13"
   },
   {
+    "boro": "BK",
+    "boardNumber": 14,
     "responseId": 321,
     "communityBoardID": "BK14",
     "communityBoardChair": "Karl-Henry Cesar",
@@ -1638,6 +1690,8 @@
     "cb": "BK14"
   },
   {
+    "boro": "BK",
+    "boardNumber": 15,
     "responseId": 322,
     "communityBoardID": "BK15",
     "communityBoardChair": "Theresa Scavo",
@@ -1701,6 +1755,8 @@
     "cb": "BK15"
   },
   {
+    "boro": "BK",
+    "boardNumber": 16,
     "responseId": 323,
     "communityBoardID": "BK16",
     "communityBoardChair": "",
@@ -1764,6 +1820,8 @@
     "cb": "BK16"
   },
   {
+    "boro": "BK",
+    "boardNumber": 17,
     "responseId": 324,
     "communityBoardID": "BK17",
     "communityBoardChair": "",
@@ -1827,6 +1885,8 @@
     "cb": "BK17"
   },
   {
+    "boro": "BK",
+    "boardNumber": 18,
     "responseId": 325,
     "communityBoardID": "BK18",
     "communityBoardChair": "",
@@ -1890,6 +1950,8 @@
     "cb": "BK18"
   },
   {
+    "boro": "MN",
+    "boardNumber": 1,
     "responseId": 326,
     "communityBoardID": "MN1",
     "communityBoardChair": "Tammy Meltzer",
@@ -1953,6 +2015,8 @@
     "cb": "MN1"
   },
   {
+    "boro": "MN",
+    "boardNumber": 2,
     "responseId": 327,
     "communityBoardID": "MN2",
     "communityBoardChair": "Susan Kent",
@@ -2016,6 +2080,8 @@
     "cb": "MN2"
   },
   {
+    "boro": "MN",
+    "boardNumber": 3,
     "responseId": 328,
     "communityBoardID": "MN3",
     "communityBoardChair": "",
@@ -2079,6 +2145,8 @@
     "cb": "MN3"
   },
   {
+    "boro": "MN",
+    "boardNumber": 4,
     "responseId": 329,
     "communityBoardID": "MN4",
     "communityBoardChair": "",
@@ -2142,6 +2210,8 @@
     "cb": "MN4"
   },
   {
+    "boro": "MN",
+    "boardNumber": 5,
     "responseId": 330,
     "communityBoardID": "MN5",
     "communityBoardChair": "",
@@ -2205,6 +2275,8 @@
     "cb": "MN5"
   },
   {
+    "boro": "MN",
+    "boardNumber": 6,
     "responseId": 331,
     "communityBoardID": "MN6",
     "communityBoardChair": "",
@@ -2268,6 +2340,8 @@
     "cb": "MN6"
   },
   {
+    "boro": "MN",
+    "boardNumber": 7,
     "responseId": 332,
     "communityBoardID": "MN7",
     "communityBoardChair": "Beverly Donohue",
@@ -2331,6 +2405,8 @@
     "cb": "MN7"
   },
   {
+    "boro": "MN",
+    "boardNumber": 8,
     "responseId": 333,
     "communityBoardID": "MN8",
     "communityBoardChair": "",
@@ -2394,6 +2470,8 @@
     "cb": "MN8"
   },
   {
+    "boro": "MN",
+    "boardNumber": 9,
     "responseId": 334,
     "communityBoardID": "MN9",
     "communityBoardChair": "",
@@ -2457,6 +2535,8 @@
     "cb": "MN9"
   },
   {
+    "boro": "MN",
+    "boardNumber": 10,
     "responseId": 335,
     "communityBoardID": "MN10",
     "communityBoardChair": "",
@@ -2520,6 +2600,8 @@
     "cb": "MN10"
   },
   {
+    "boro": "MN",
+    "boardNumber": 11,
     "responseId": 336,
     "communityBoardID": "MN11",
     "communityBoardChair": "Xavier A. Santiago",
@@ -2583,6 +2665,8 @@
     "cb": "MN11"
   },
   {
+    "boro": "MN",
+    "boardNumber": 12,
     "responseId": 337,
     "communityBoardID": "MN12",
     "communityBoardChair": "",
@@ -2646,6 +2730,8 @@
     "cb": "MN12"
   },
   {
+    "boro": "QN",
+    "boardNumber": 1,
     "responseId": 338,
     "communityBoardID": "QN1",
     "communityBoardChair": "",
@@ -2709,6 +2795,8 @@
     "cb": "QN1"
   },
   {
+    "boro": "QN",
+    "boardNumber": 2,
     "responseId": 339,
     "communityBoardID": "QN2",
     "communityBoardChair": "",
@@ -2772,6 +2860,8 @@
     "cb": "QN2"
   },
   {
+    "boro": "QN",
+    "boardNumber": 3,
     "responseId": 340,
     "communityBoardID": "QN3",
     "communityBoardChair": "",
@@ -2835,6 +2925,8 @@
     "cb": "QN3"
   },
   {
+    "boro": "QN",
+    "boardNumber": 4,
     "responseId": 341,
     "communityBoardID": "QN4",
     "communityBoardChair": "",
@@ -2898,6 +2990,8 @@
     "cb": "QN4"
   },
   {
+    "boro": "QN",
+    "boardNumber": 5,
     "responseId": 342,
     "communityBoardID": "QN5",
     "communityBoardChair": "",
@@ -2961,6 +3055,8 @@
     "cb": "QN5"
   },
   {
+    "boro": "QN",
+    "boardNumber": 6,
     "responseId": 343,
     "communityBoardID": "QN6",
     "communityBoardChair": "Heather Beers-Dimitriadis",
@@ -3024,6 +3120,8 @@
     "cb": "QN6"
   },
   {
+    "boro": "QN",
+    "boardNumber": 7,
     "responseId": 344,
     "communityBoardID": "QN7",
     "communityBoardChair": "",
@@ -3087,6 +3185,8 @@
     "cb": "QN7"
   },
   {
+    "boro": "QN",
+    "boardNumber": 8,
     "responseId": 345,
     "communityBoardID": "QN8",
     "communityBoardChair": "",
@@ -3150,6 +3250,8 @@
     "cb": "QN8"
   },
   {
+    "boro": "QN",
+    "boardNumber": 9,
     "responseId": 346,
     "communityBoardID": "QN9",
     "communityBoardChair": "",
@@ -3213,6 +3315,8 @@
     "cb": "QN9"
   },
   {
+    "boro": "QN",
+    "boardNumber": 10,
     "responseId": 347,
     "communityBoardID": "QN10",
     "communityBoardChair": "",
@@ -3276,6 +3380,8 @@
     "cb": "QN10"
   },
   {
+    "boro": "QN",
+    "boardNumber": 11,
     "responseId": 348,
     "communityBoardID": "QN11",
     "communityBoardChair": "",
@@ -3339,6 +3445,8 @@
     "cb": "QN11"
   },
   {
+    "boro": "QN",
+    "boardNumber": 12,
     "responseId": 349,
     "communityBoardID": "QN12",
     "communityBoardChair": "Rev. Carlene O. Thorbs",
@@ -3402,6 +3510,8 @@
     "cb": "QN12"
   },
   {
+    "boro": "QN",
+    "boardNumber": 13,
     "responseId": 350,
     "communityBoardID": "QN13",
     "communityBoardChair": "",
@@ -3465,6 +3575,8 @@
     "cb": "QN13"
   },
   {
+    "boro": "QN",
+    "boardNumber": 14,
     "responseId": 351,
     "communityBoardID": "QN14",
     "communityBoardChair": "",
@@ -3528,6 +3640,8 @@
     "cb": "QN14"
   },
   {
+    "boro": "SI",
+    "boardNumber": 1,
     "responseId": 352,
     "communityBoardID": "SI1",
     "communityBoardChair": "Nicholas Siclari",
@@ -3591,6 +3705,8 @@
     "cb": "SI1"
   },
   {
+    "boro": "SI",
+    "boardNumber": 2,
     "responseId": 353,
     "communityBoardID": "SI2",
     "communityBoardChair": "",
@@ -3654,6 +3770,8 @@
     "cb": "SI2"
   },
   {
+    "boro": "SI",
+    "boardNumber": 3,
     "responseId": 354,
     "communityBoardID": "SI3",
     "communityBoardChair": "",
