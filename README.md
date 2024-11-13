@@ -42,3 +42,9 @@ Console error "Warning: Expected server HTML to contain a matching `<i>` in `<a>
 
 ## Usage
 Open the site in Safari (the links in the Table of Contents do not work if exporting from other browsers).  If there is a toast notification in the bottom left about errors, close it before hitting print or there will be shading at the top of each page.  Select the community district from the drop-down and hit the "Print" button at the bottom of the page.  At the bottom of the print menu, make sure PDF is selected, and then hit print.
+
+## Adding the cover pages
+To combine the output pdf with the cover page:
+```
+"/System/Library/Automator/Combine PDF Pages.action/Contents/MacOS/join" -o PATH/TO/YOUR/MERGED/FILE.pdf /PATH/TO/ORIGINAL/1.pdf /PATH/TO/ANOTHER/2.pdf /PATH/TO/A/WHOLE/DIR/*.pdf
+```
