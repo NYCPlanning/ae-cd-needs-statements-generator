@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from "react";
-let allStatements = require("/public/jsondata/20240905140456-SurveyExport-NeedsStatements-fixed.json");
+let allStatements = require("/public/jsondata/statements.json");
+// let allStatements = require("/public/jsondata/20240905140456-SurveyExport-NeedsStatements-fixed.json");
 let allBudgetRequests = require("/public/jsondata/20240905140404-SurveyExport-CBBRs-fixed.json");
 import PageBreak from "./templates/page_break";
 import SectionHeader from "./templates/section_header";

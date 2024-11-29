@@ -1,3 +1,5 @@
+import fixString from "../helpers/fix_string"
+
 export default function NeedsGroup(props) {
   const group = {
     "Healthcare and Human Services": {
@@ -57,7 +59,9 @@ export default function NeedsGroup(props) {
   }
 
   const needsGroup = group[props.group]
-  
+
+  var rowCounter = 0;
+
   return (
 
     <div className="district-info" key={needsGroup}>
@@ -67,7 +71,12 @@ export default function NeedsGroup(props) {
       <p></p>
       <p>
         <b>{ needsGroup.mostImportant !== "" ? needsGroup.mostImportant : needsGroup.mostImportantOther}</b><br />
-        { needsGroup.explanation }
+        {/* { needsGroup.explanation } */}
+        {fixString(needsGroup.explanation).map((row) => (
+          <p key={rowCounter++}>
+            {row}
+          </p>
+        ))}
       </p>
 
       <hr />
@@ -78,7 +87,16 @@ export default function NeedsGroup(props) {
       {needsGroup.needs.map((need) => (
         <p key={need[1]}>
           <b>{ need[0] }</b><br />
-          { need[1] !== "" ? need[1] : "No comments" }
+          {/* { need[1] !== "" ? need[1] : "No comments" } */}
+          {
+            need[1] !== "" ? 
+            (fixString(need[1]).map((row) => (
+              <p key={rowCounter++}>
+                {row}
+              </p>
+            ))) :
+            "No comments"
+          }
         </p>
       ))}
       
