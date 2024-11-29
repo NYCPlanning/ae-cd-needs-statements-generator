@@ -1,4 +1,4 @@
-import fixString from "../helpers/fix_string"
+import fixString from "../helpers/fix_string";
 
 export default function NeedsGroup(props) {
   const group = {
@@ -91,7 +91,7 @@ export default function NeedsGroup(props) {
           {
             need[1] !== "" ? 
             (fixString(need[1]).map((row) => (
-              <p key={rowCounter++}>
+              <p key={`needsgroup${rowCounter++}`}>
                 {row}
               </p>
             ))) :
