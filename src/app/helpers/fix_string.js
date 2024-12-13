@@ -1,6 +1,6 @@
 export default function fixString(string) {
   const fixedString = string.replaceAll("\r\n", "\n")
-                      .replaceAll("TACOS", "FAJITAS");
+                      .replaceAll("Äê", " ");
 
   return fixedString.split("\n");
 }
