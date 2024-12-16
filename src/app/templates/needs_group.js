@@ -59,7 +59,7 @@ export default function NeedsGroup(props) {
   }
 
   const needsGroup = group[props.group]
-
+  const showNeedsGroupHeader = needsGroup.needs.some((need) => !((need[1]==="") || (need[1]==="No comments")))
   var rowCounter = 0;
 
   return (
@@ -81,26 +81,30 @@ export default function NeedsGroup(props) {
 
       <hr />
 
-      <p></p><p><u>Community District Needs Related to {props.group}</u></p>
-      <p></p>
+      {
+        showNeedsGroupHeader && 
+        (
+          <>
+            <p></p><p><u>Community District Needs Related to {props.group}</u></p>
+            <p></p>
 
-      {needsGroup.needs.map((need) => (
-        <p key={need[1]}>
-          <b>{ need[0] }</b><br />
-          {/* { need[1] !== "" ? need[1] : "No comments" } */}
-          {
-            need[1] !== "" ? 
-            (fixString(need[1]).map((row) => (
-              <p key={`needsgroup${rowCounter++}`}>
-                {row}
-              </p>
-            ))) :
-            "No comments"
-          }
-        </p>
-      ))}
-      
-      <hr />
+            {needsGroup.needs.map((need) => (
+              ["", "No comments"].includes(need[1]) ? "" :
+              (
+                <p key={need[1]}>
+                  <b>{ need[0] }</b><br />
+                    {(fixString(need[1]).map((row) => (
+                      <p key={`needsgroup${rowCounter++}`}>
+                        {row}
+                      </p>
+                    )))}
+                </p>
+              )
+            ))}
+            <hr />
+          </>
+        )
+      }
     </div>
 
   )
