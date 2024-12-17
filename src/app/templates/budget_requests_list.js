@@ -18,9 +18,8 @@ export default function BudgetRequestsList(props) {
 				{	(capital.length || continuedSupport.length) ? (
 					<table className="table mt-4 widget_request_table" style={{tableLayout: "fixed"}}>
 						<thead><tr>
-							<th width="15%">Title</th>
-							<th width="10%">Priority</th>
-							<th width="10%">Agency</th>
+							<th width="20%">Title</th>
+							<th width="15%">Priority<br />Agency</th>
 							<th width="21%">Request</th>
 							<th>Explanation</th>
 						</tr></thead>
@@ -49,9 +48,8 @@ export default function BudgetRequestsList(props) {
 					<table className="table mt-4 widget_request_table" style={{tableLayout: "fixed"}}>
 						
 						<thead><tr>
-							<th width="15%">Title</th>
-							<th width="10%">Priority</th>
-							<th width="10%">Agency</th>
+						<th width="20%">Title</th>
+							<th width="15%">Priority<br />Agency</th>
 							<th width="21%">Request</th>
 							<th>Explanation</th>
 						</tr></thead>
