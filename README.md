@@ -33,7 +33,7 @@ To export the budget requests, select the corresponding survey in Alchemer, and 
 
 - Use `variablenamelookups.xlsx` to replace the variable names in the csvs
   - Any blanks should be removed
-- Add in `boro`, `boardNumber`, and `agencyAcronym` columns
+- Add in `boro`, `borough`, `boardNumber`, and `agencyAcronym` columns
 - In the budget requests, remove items where:
   - `Status` is not `Complete`
   - `isDeleted` is `TRUE`

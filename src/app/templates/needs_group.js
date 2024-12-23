@@ -65,7 +65,7 @@ export default function NeedsGroup(props) {
   return (
 
     <div className="district-info" key={needsGroup}>
-      <h6 className="text-center boro-cd-header">{props.cb.boro} Community Board {props.cb.boardNumber}</h6>
+      <h6 className="text-center boro-cd-header">{props.cb.borough} Community Board {props.cb.boardNumber}</h6>
       <hr />
       <p></p><p><u>Most Important Issue Related to {props.group}</u></p>
       <p></p>

@@ -5,7 +5,7 @@ export default function CommunityBoardInfo(props) {
 
   return (
     <div className="district-info">
-      <h6>{props.cb.boro} Community Board {props.cb.boardNumber}</h6>
+      <h6>{props.cb.borough} Community Board {props.cb.boardNumber}</h6>
       <hr />
       <div className="row">
         <div className="col-6">
