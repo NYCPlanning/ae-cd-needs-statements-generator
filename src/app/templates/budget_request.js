@@ -54,9 +54,9 @@ export default function BudgetRequest(props) {
   return(
     <>
       <tr key={props.k} id={`${props.br.responseId}-full`}>
-        <td width="15%"><a href={`#${props.br.responseId}-abbreviated`}>{props.br.budgetRequestTitle}</a></td>
-        <td width="10%"><a href={`#${props.br.responseId}-abbreviated`}>{props.priority}</a></td>
-        <td width="10%"><a href={`#${props.br.responseId}-abbreviated`}>{props.br.agencyAcronym}</a></td>
+        <td width="20%"><a href={`#${props.br.responseId}-abbreviated`}>{props.br.budgetRequestTitle}</a></td>
+        <td width="15%"><a href={`#${props.br.responseId}-abbreviated`}>{props.priority}</a><br /><a href={`#${props.br.responseId}-abbreviated`}>{props.br.agencyAcronym}</a></td>
+        {/* <td width="10%"><a href={`#${props.br.responseId}-abbreviated`}>{props.br.agencyAcronym}</a></td> */}
         <td width="21%"><a href={`#${props.br.responseId}-abbreviated`}><b>{props.br.request}</b></a></td>
         <td>
           <a href={`#${props.br.responseId}-abbreviated`}>

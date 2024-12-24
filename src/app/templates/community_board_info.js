@@ -5,7 +5,7 @@ export default function CommunityBoardInfo(props) {
 
   return (
     <div className="district-info">
-      <h6>{props.cb.boro} Community Board {props.cb.boardNumber}</h6>
+      <h6>{props.cb.borough} Community Board {props.cb.boardNumber}</h6>
       <hr />
       <div className="row">
         <div className="col-6">
@@ -13,7 +13,7 @@ export default function CommunityBoardInfo(props) {
             <tbody>
               <tr>
                 <td>Address: </td>
-                <td>{props.cb.communityBoardOfficeAddress}</td>
+                <td style={{textWrap: "balance"}}>{props.cb.communityBoardOfficeAddress}</td>
               </tr>
               <tr>
                 <td>Phone: </td>

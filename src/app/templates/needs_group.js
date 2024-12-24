@@ -1,3 +1,5 @@
+import fixString from "../helpers/fix_string";
+
 export default function NeedsGroup(props) {
   const group = {
     "Healthcare and Human Services": {
@@ -57,32 +59,52 @@ export default function NeedsGroup(props) {
   }
 
   const needsGroup = group[props.group]
-  
+  const showNeedsGroupHeader = needsGroup.needs.some((need) => !((need[1]==="") || (need[1]==="No comments")))
+  var rowCounter = 0;
+
   return (
 
     <div className="district-info" key={needsGroup}>
-      <h6 className="text-center boro-cd-header">{props.cb.boro} Community Board {props.cb.boardNumber}</h6>
+      <h6 className="text-center boro-cd-header">{props.cb.borough} Community Board {props.cb.boardNumber}</h6>
       <hr />
       <p></p><p><u>Most Important Issue Related to {props.group}</u></p>
       <p></p>
       <p>
         <b>{ needsGroup.mostImportant !== "" ? needsGroup.mostImportant : needsGroup.mostImportantOther}</b><br />
-        { needsGroup.explanation }
+        {/* { needsGroup.explanation } */}
+        {fixString(needsGroup.explanation).map((row) => (
+          <p key={rowCounter++}>
+            {row}
+          </p>
+        ))}
       </p>
 
       <hr />
 
-      <p></p><p><u>Community District Needs Related to {props.group}</u></p>
-      <p></p>
+      {
+        showNeedsGroupHeader && 
+        (
+          <>
+            <p></p><p><u>Community District Needs Related to {props.group}</u></p>
+            <p></p>
 
-      {needsGroup.needs.map((need) => (
-        <p key={need[1]}>
-          <b>{ need[0] }</b><br />
-          { need[1] !== "" ? need[1] : "No comments" }
-        </p>
-      ))}
-      
-      <hr />
+            {needsGroup.needs.map((need) => (
+              ["", "No comments"].includes(need[1]) ? "" :
+              (
+                <p key={need[1]}>
+                  <b>{ need[0] }</b><br />
+                    {(fixString(need[1]).map((row) => (
+                      <p key={`needsgroup${rowCounter++}`}>
+                        {row}
+                      </p>
+                    )))}
+                </p>
+              )
+            ))}
+            <hr />
+          </>
+        )
+      }
     </div>
 
   )

@@ -3,7 +3,7 @@ export default function Top3Issues(props) {
   return (
 
     <div className="district-info">
-      <h6 className="text-center boro-cd-header">{props.cb.boro} Community Board {props.cb.boardNumber}</h6>
+      <h6 className="text-center boro-cd-header">{props.cb.borough} Community Board {props.cb.boardNumber}</h6>
       <hr />
       <p></p><p>The three most pressing issues facing this Community Board are:</p>
       <p></p>
