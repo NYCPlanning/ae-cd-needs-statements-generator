@@ -35,10 +35,10 @@ export default function BudgetRequestWithAgencyResponse(props) {
               {props.br.explanation}
             </p>
           </div>
-          <div style={{width: "40%", display: "flex", paddingLeft: "1rem"}}>
+          <div style={{width: "40%", overflowWrap: "break-word", paddingLeft: "1rem"}}>
             <p>
               <i>
-                Agency Response: {props.br.currentFYAgencyResponse ? props.br.currentFYAgencyResponse : LOREM_IPSUM}
+                Agency Response: {props.br.currentFYAgencyCategoryResponse ? props.br.currentFYAgencyCategoryResponse : LOREM_IPSUM} {props.br.currentFYAgencyResponse ? props.br.currentFYAgencyResponse : LOREM_IPSUM}
               </i>
             </p>
           </div>  
