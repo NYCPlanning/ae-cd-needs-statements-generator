@@ -49,7 +49,7 @@ export default function Home() {
           {/* <a href="javascript:" title="Download" className="center pdfDownloadReport mr-3" data-id="SI99" data-district_id="SI99"><i className="fas fa-download"></i> PDFFFFFFF</a> */}
           <a href="javascript:window.print();" title="Print" className="center"><i className="dcp fa-print"></i> Print</a>
         </div>
-
+{/* 
         <h1 className="form-title"></h1>
         <p>Cover page goes here</p>
         <PageBreak />
@@ -140,7 +140,7 @@ export default function Home() {
           "" }
           <NeedsGroupBudgetRequestsList brs={brs} section="Other Needs" />
         <PageBreak />
-
+ */}
         <SectionHeader sectionName="7. Summary of Prioritized Budget Requests" id="summary_of_prioritized_budget_requests" />
           {
             INCLUDE_AGENCY_RESPONSES ?
@@ -148,7 +148,7 @@ export default function Home() {
             (<BudgetRequestsList brs={brs} />)
           }
           {/* <BudgetRequestsList brs={brs} /> */}
-        <PageBreak />
+        {/* <PageBreak /> */}
 
         {/* {% for widget in widgets %}
           <div className="preview-widget section_mb" id="preview_widget_{{ widget.getConfig().getId() }}">
