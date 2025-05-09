@@ -60719,8 +60719,8 @@
     "siteIntersectionCompassDirection": "",
     "supporter1": "",
     "supporter2": "",
-    "currentFYAgencyResponse": "Presently, there are a variety of agency-funded programs in the district for this target population. Additional programs are contingent upon available funding and will be distributed through an RFP process. Organizations are encouraged to apply.",
-    "currentFYAgencyCategoryResponse": "Agency supports but cannot accommodate.",
+    "currentFYAgencyResponse": "",
+    "currentFYAgencyCategoryResponse": "Pending Agency Response.",
     "currentFYRanking": 1,
     "currentYearID": "7493666-6098-2026-MN04-C"
   },
@@ -69680,7 +69680,7 @@
     "supporter1": "PSA6 Precinct, located at 2770 Frederick Douglass Blvd New York, NY 10039 (Btwn. W. 148th Street  and W. 147th Street)",
     "supporter2": "Residents of West 148th Street",
     "currentFYAgencyResponse": "",
-    "currentFYAgencyCategoryResponse": "",
+    "currentFYAgencyCategoryResponse": "Pending Agency Response.",
     "currentFYRanking": 1,
     "currentYearID": "7493666-6476-2026-MN10-E"
   },
@@ -120360,7 +120360,7 @@
     "supporter1": "",
     "supporter2": "",
     "currentFYAgencyResponse": "",
-    "currentFYAgencyCategoryResponse": "",
+    "currentFYAgencyCategoryResponse": "Pending Agency Response.",
     "currentFYRanking": 1,
     "currentYearID": "7493666-9032-2026-MN10-C"
   },
