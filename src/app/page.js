@@ -3,8 +3,10 @@
 const INCLUDE_AGENCY_RESPONSES = true;
 
 import { useState } from "react";
-let allStatements = require("/public/jsondata/statements.json");
-let allBudgetRequests = require("/public/jsondata/brs.json");
+// let allStatements = require("/public/jsondata/statements.json");
+let allStatements = require("/public/jsondata/FY2027-statements.json");
+// let allBudgetRequests = require("/public/jsondata/brs.json");
+let allBudgetRequests = require("/public/jsondata/CBBRs 20251107140751-SurveyExport (First Round) (Edited).json");
 import PageBreak from "./templates/page_break";
 import SectionHeader from "./templates/section_header";
 import Introduction from "./templates/static/introduction";
@@ -21,7 +23,8 @@ import BudgetRequestsListWithAgencyResponses from "./templates/budget_requests_l
 import NeedsGroupBudgetRequestsList from "./templates/needs_group_budget_requests_list";
 
 export default function Home() {
-  const [selectedCB, setSelectedCB] = useState("SI99");
+  // const [selectedCB, setSelectedCB] = useState("SI99");
+  const [selectedCB, setSelectedCB] = useState("MN11");
   const cb = allStatements.find((statement) => statement.communityBoardID === selectedCB);
   const brs = allBudgetRequests.filter((request) => request.communityBoardID === selectedCB);
 

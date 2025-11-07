@@ -15,7 +15,7 @@ export default function NeedsGroupBudgetRequestsList(props) {
 
 	return (
 		<>
-			<p style={{fontStyle: "italic"}}>Note: Please see Section 7 for the full content of each request</p>
+			<p style={{fontStyle: "italic"}}>Note: Please see Section 7 for the full content of each request. Requests are prioritized by agency.</p>
 			<SectionHeader fontSize="1.25rem" sectionName="Capital Budget Requests" noBorder={true} />
 
 			<div className="widget-requests">
