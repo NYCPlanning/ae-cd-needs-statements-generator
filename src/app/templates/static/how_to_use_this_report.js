@@ -1,7 +1,7 @@
 export default function HowToUseThisReport() {
   return (
     <>
-      <p>This report represents the Statement of Community District Needs and Community Board Budget Requests for Fiscal Year (FY) 2026. This report contains the formatted but otherwise unedited content provided by the community board, collected through an online form available to community boards from June&nbsp;to November, 2024.</p>
+      <p>This report represents the Statement of Community District Needs and Community Board Budget Requests for Fiscal Year (FY) 2027. This report contains the formatted but otherwise unedited content provided by the community board, collected through an online form available to community boards from June&nbsp;to November, 2025.</p>
 
       <p>Community boards may provide substantive supplemental information together with their Statements and Budget Requests. This supporting material can be accessed by clicking on the links provided in the document or by copying and pasting them into a web browser, such as Chrome, Safari or Firefox.</p>
 
