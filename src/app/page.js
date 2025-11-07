@@ -1,6 +1,6 @@
 'use client'
 
-const INCLUDE_AGENCY_RESPONSES = true;
+const INCLUDE_AGENCY_RESPONSES = false;
 
 import { useState } from "react";
 // let allStatements = require("/public/jsondata/statements.json");

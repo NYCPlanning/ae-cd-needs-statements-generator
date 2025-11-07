@@ -7,16 +7,37 @@ export default function BudgetRequestsList(props) {
 	// Filter the list of brs to the section, if necessary
 	const brs = props.section ? props.brs.filter((request) => request.policyArea === props.section) : props.brs;
 
+	// Changed for FY27, now boards sort by agency
 	const capital = brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport !== "Continued Support"))).sort((a, b) => a.currentFYRanking - b.currentFYRanking);
 	const continuedSupport = brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport === "Continued Support"))).sort((a, b) => a.currentFYRanking - b.currentFYRanking);
+	const capitalAndContinuedSupport = brs.filter((request) => (request.type === "Capital")).sort((a, b) => a.currentFYRanking - b.currentFYRanking);
 	const expense = brs.filter((request) => request.type === "Expense").sort((a, b) => a.currentFYRanking - b.currentFYRanking);
+
+	const capitalAndContinuedSupportAgencies = [... new Set(capitalAndContinuedSupport.map((br) => br.agency))];
+	const expenseAgencies = [... new Set(expense.map((br) => br.agency))];
+	console.log(capital)
+
+	const totalCapitalRequests = props.brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport !== "Continued Support"))).reduce(((acc, curr) => {
+		var newAcc = { ...acc }
+		if (acc[curr.agency]) { newAcc[curr.agency]++ }
+		else { newAcc[curr.agency] = 1 }
+		return newAcc;
+	}), {})
+
+	// const totalExpenseRequests = props.brs.filter((request) => request.type === "Expense").length;
+	const totalExpenseRequests = props.brs.filter((request) => request.type === "Expense").reduce(((acc, curr) => {
+		var newAcc = { ...acc }
+		if (acc[curr.agency]) { newAcc[curr.agency]++ }
+		else { newAcc[curr.agency] = 1 }
+		return newAcc;
+	}), {})
 
 	return (
 		<>
 			<SectionHeader fontSize="1.25rem" sectionName="Capital Budget Requests" noBorder={true} />
 			<div className="widget-requests">
-				{	(capital.length || continuedSupport.length) ? (
-					<table className="table mt-4 widget_request_table" style={{tableLayout: "fixed"}}>
+				{(capital.length || continuedSupport.length) ? (
+					<table className="table mt-4 widget_request_table" style={{ tableLayout: "fixed" }}>
 						<thead><tr>
 							<th width="20%">Title</th>
 							<th width="15%">Priority<br />Agency</th>
@@ -25,44 +46,57 @@ export default function BudgetRequestsList(props) {
 						</tr></thead>
 						<tbody>
 							{
-								capital.map((br, i) =>
-									<BudgetRequest br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+								capitalAndContinuedSupportAgencies.map((agency) =>
+									<>
+										<tr><td colSpan="4" style={{ border: 0, fontSize: "1rem", fontWeight: "500" }}>{agency}</td></tr>
+										{
+											capital.filter((req) => req.agency === agency).map((br) =>
+												<BudgetRequest br={br} priority={`${br.currentFYRanking} / ${totalCapitalRequests[agency]}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+											)
+										}
+										{
+											continuedSupport.filter((req) => req.agency === agency).map((br) =>
+												<BudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+											)
+										}</>
 								)
+
 							}
-							{
-								continuedSupport.map((br, i) =>
-									<BudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
-								)
-							}
+
 						</tbody>
-					</table>) : 
+					</table>) :
 					<p>The Community Board did not submit any Budget Requests in this category.</p>
 
 				}
-				
+
 			</div>
 
 			<SectionHeader fontSize="1.25rem" sectionName="Expense Budget Requests" noBorder={true} />
 			<div className="widget-requests">
-				{ expense.length ? (
-					<table className="table mt-4 widget_request_table" style={{tableLayout: "fixed"}}>
-						
+				{expense.length ? (
+					<table className="table mt-4 widget_request_table" style={{ tableLayout: "fixed" }}>
+
 						<thead><tr>
-						<th width="20%">Title</th>
+							<th width="20%">Title</th>
 							<th width="15%">Priority<br />Agency</th>
 							<th width="21%">Request</th>
 							<th>Explanation</th>
 						</tr></thead>
 						<tbody>
 							{
+								expenseAgencies.map((agency) =>
+									<>
+										<tr><td colSpan="4" style={{ border: 0, fontSize: "1rem", fontWeight: "500" }}>{agency}</td></tr>
+										{
+											expense.filter((req) => req.agency === agency).map((br) =>
+												<BudgetRequest br={br} priority={`${br.currentFYRanking} / ${totalExpenseRequests[agency]}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+											)
+										}</>
+								)
 
-									expense.map((br, i) =>
-										<BudgetRequest br={br} priority={`${i+1} / ${expense.length}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
-									)
-									
 							}
 						</tbody>
-					</table>) : 
+					</table>) :
 					<p>The Community Board did not submit any Budget Requests in this category.</p>
 				}
 			</div>
