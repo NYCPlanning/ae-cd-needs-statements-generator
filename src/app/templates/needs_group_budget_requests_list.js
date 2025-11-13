@@ -36,8 +36,8 @@ export default function NeedsGroupBudgetRequestsList(props) {
 				{	(capital.length || continuedSupport.length) ? (
 					<table className="table widget_request_table" style={{tableLayout: "fixed"}}>
 						<thead><tr>
-							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
 							<th style={{padding: "0.25rem 0.75rem", width: "12%"}}>Agency</th>
+							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
 							<th style={{padding: "0.25rem 0.75rem"}}>Title</th>
 						</tr></thead>
 						<tbody>
@@ -45,8 +45,8 @@ export default function NeedsGroupBudgetRequestsList(props) {
 								capital.map((br, i) =>
 									// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} />
 									<tr key={`${props.section}${br.responseId}`} id={`${br.responseId}-abbreviated`}>
-										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{`${br.currentFYRanking} / ${totalCapitalRequests[br.agencyAcronym]}`}</a></td>
 										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}><a href={`#${br.responseId}-full`}>{br.agencyAcronym}</a></td>
+										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{`${br.currentFYRanking} / ${totalCapitalRequests[br.agencyAcronym]}`}</a></td>
 										<td style={{padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{br.budgetRequestTitle}</a></td>
 									</tr>
 								)
@@ -55,8 +55,8 @@ export default function NeedsGroupBudgetRequestsList(props) {
 								continuedSupport.map((br, i) =>
 									// <NeedsGroupBudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} />
 									<tr key={`${props.section}${br.responseId}`} id={`${br.responseId}-abbreviated`} className="abbreviated-request-list">
-										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>CS</a></td>
 										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}><a href={`#${br.responseId}-full`}>{br.agencyAcronym}</a></td>
+										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>CS</a></td>
 										<td style={{padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{br.budgetRequestTitle}</a></td>
 									</tr>
 								)
@@ -75,8 +75,8 @@ export default function NeedsGroupBudgetRequestsList(props) {
 					<table className="table widget_request_table" style={{tableLayout: "fixed"}}>
 						
 						<thead><tr>
-							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
 							<th style={{padding: "0.25rem 0.75rem", width: "12%"}}>Agency</th>
+							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
 							<th style={{padding: "0.25rem 0.75rem"}}>Title</th>
 						</tr></thead>
 						<tbody>
@@ -85,8 +85,8 @@ export default function NeedsGroupBudgetRequestsList(props) {
 									expense.map((br, i) =>
 										// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${expense.length}`} k={`${props.section}${br.responseId}`} />
 										<tr key={`${props.section}${br.responseId}`} id={`${br.responseId}-abbreviated`}>
-											<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{`${br.currentFYRanking} / ${totalExpenseRequests[br.agencyAcronym]}`}</a></td>
 											<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}><a href={`#${br.responseId}-full`}>{br.agencyAcronym}</a></td>
+											<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{`${br.currentFYRanking} / ${totalExpenseRequests[br.agencyAcronym]}`}</a></td>
 											<td style={{padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{br.budgetRequestTitle}</a></td>
 										</tr>
 									)

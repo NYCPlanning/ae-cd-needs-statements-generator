@@ -37,34 +37,36 @@ export default function BudgetRequestsList(props) {
 			<SectionHeader fontSize="1.25rem" sectionName="Capital Budget Requests" noBorder={true} />
 			<div className="widget-requests">
 				{(capital.length || continuedSupport.length) ? (
-					<table className="table mt-4 widget_request_table" style={{ tableLayout: "fixed" }}>
-						<thead><tr>
-							<th width="20%">Title</th>
-							<th width="15%">Priority<br />Agency</th>
-							<th width="21%">Request</th>
-							<th>Explanation</th>
-						</tr></thead>
-						<tbody>
+					// <table className="table mt-4 widget_request_table" style={{ tableLayout: "fixed" }}>
+					// 	<thead><tr>
+					// 		<th width="20%">Title</th>
+					// 		<th width="15%">Priority<br />Agency</th>
+					// 		<th width="21%">Request</th>
+					// 		<th>Explanation</th>
+					// 	</tr></thead>
+					// 	<tbody>
+					<>
 							{
 								capitalAndContinuedSupportAgencies.map((agency) =>
 									<>
-										<tr><td colSpan="4" style={{ border: 0, fontSize: "1rem", fontWeight: "500" }}>{agency}</td></tr>
+										<p width="100%" style={{ border: 0, fontSize: "1.1rem", fontWeight: "500", marginBottom: "0.5rem" }}>{agency}</p>
 										{
 											capital.filter((req) => req.agency === agency).map((br) =>
-												<BudgetRequest br={br} priority={`${br.currentFYRanking} / ${totalCapitalRequests[agency]}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+												<BudgetRequest br={br} priorityNumerator={br.currentFYRanking} priorityDenominator={totalCapitalRequests[agency]} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
 											)
 										}
 										{
 											continuedSupport.filter((req) => req.agency === agency).map((br) =>
-												<BudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+												<BudgetRequest br={br} priorityNumerator={`CS`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
 											)
 										}</>
 								)
 
 							}
-
-						</tbody>
-					</table>) :
+</>
+						// </tbody>
+					// </table>
+					) :
 					<p>The Community Board did not submit any Budget Requests in this category.</p>
 
 				}
@@ -74,29 +76,32 @@ export default function BudgetRequestsList(props) {
 			<SectionHeader fontSize="1.25rem" sectionName="Expense Budget Requests" noBorder={true} />
 			<div className="widget-requests">
 				{expense.length ? (
-					<table className="table mt-4 widget_request_table" style={{ tableLayout: "fixed" }}>
+					// <table className="table mt-4 widget_request_table" style={{ tableLayout: "fixed" }}>
 
-						<thead><tr>
-							<th width="20%">Title</th>
-							<th width="15%">Priority<br />Agency</th>
-							<th width="21%">Request</th>
-							<th>Explanation</th>
-						</tr></thead>
-						<tbody>
+					// 	<thead><tr>
+					// 		<th width="20%">Title</th>
+					// 		<th width="15%">Priority<br />Agency</th>
+					// 		<th width="21%">Request</th>
+					// 		<th>Explanation</th>
+					// 	</tr></thead>
+					// 	<tbody>
+					<>
 							{
 								expenseAgencies.map((agency) =>
 									<>
-										<tr><td colSpan="4" style={{ border: 0, fontSize: "1rem", fontWeight: "500" }}>{agency}</td></tr>
+										<p width="100%" style={{ border: 0, fontSize: "1.1rem", fontWeight: "500", marginBottom: "0.5rem" }}>{agency}</p>
 										{
 											expense.filter((req) => req.agency === agency).map((br) =>
-												<BudgetRequest br={br} priority={`${br.currentFYRanking} / ${totalExpenseRequests[agency]}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+												<BudgetRequest br={br} priorityNumerator={br.currentFYRanking} priorityDenominator={totalExpenseRequests[agency]} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
 											)
 										}</>
 								)
 
 							}
-						</tbody>
-					</table>) :
+							</>
+						// </tbody>
+					// </table>
+				) :
 					<p>The Community Board did not submit any Budget Requests in this category.</p>
 				}
 			</div>
