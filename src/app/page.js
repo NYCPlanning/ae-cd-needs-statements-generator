@@ -1,12 +1,12 @@
 'use client'
 
-const INCLUDE_AGENCY_RESPONSES = false;
+const INCLUDE_AGENCY_RESPONSES = true;
 
 import { useState } from "react";
 // let allStatements = require("/public/jsondata/statements.json");
 let allStatements = require("/public/jsondata/FY2027-statements 2025-12-10 (Final without Responses).json");
 // let allBudgetRequests = require("/public/jsondata/brs.json");
-let allBudgetRequests = require("/public/jsondata/FY2027-CBBRs 2025-12-10 (Final without Responses).json");
+let allBudgetRequests = require("/public/jsondata/FY27 CBBRs after Agency Responses 2026-02-27 (Edited).json");
 import PageBreak from "./templates/page_break";
 import SectionHeader from "./templates/section_header";
 import Introduction from "./templates/static/introduction";
