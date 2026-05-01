@@ -7,9 +7,9 @@ export default function BudgetRequestsListWithAgencyResponses(props) {
 	// Filter the list of brs to the section, if necessary
 	const brs = props.section ? props.brs.filter((request) => request.policyArea === props.section) : props.brs;
 
-	const capital = brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport !== "Continued Support"))).sort((a, b) => a.currentFYRanking - b.currentFYRanking);
-	const continuedSupport = brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport === "Continued Support"))).sort((a, b) => a.currentFYRanking - b.currentFYRanking);
-	const expense = brs.filter((request) => request.type === "Expense").sort((a, b) => a.currentFYRanking - b.currentFYRanking);
+	const capital = brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport !== "Continued Support"))).sort((a, b) => a.agencyAcronym.localeCompare(b.agencyAcronym) || a.currentFYRanking - b.currentFYRanking);
+	const continuedSupport = brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport === "Continued Support"))).sort((a, b) => a.agencyAcronym.localeCompare(b.agencyAcronym) || a.currentFYRanking - b.currentFYRanking);
+	const expense = brs.filter((request) => request.type === "Expense").sort((a, b) => a.agencyAcronym.localeCompare(b.agencyAcronym) || a.currentFYRanking - b.currentFYRanking);
 
 	return (
 		<>
@@ -20,7 +20,7 @@ export default function BudgetRequestsListWithAgencyResponses(props) {
 						{
 							capital.map((br, i) =>
 								// <BudgetRequestWithAgencyResponse br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
-							<BudgetRequestWithAgencyResponse br={br} priorityNumerator={br.currentFYRanking} priorityDenominator={capital.length} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+							<BudgetRequestWithAgencyResponse br={br} priorityNumerator={br.currentFYRanking} priorityDenominator={capital.filter((c) => c.agencyAcronym === br.agencyAcronym).length} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
 							)
 						}
 						{
@@ -41,7 +41,7 @@ export default function BudgetRequestsListWithAgencyResponses(props) {
 						<>
 							{
 									expense.map((br, i) =>
-										<BudgetRequestWithAgencyResponse br={br} priorityNumerator={br.currentFYRanking} priorityDenominator={expense.length} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
+										<BudgetRequestWithAgencyResponse br={br} priorityNumerator={br.currentFYRanking} priorityDenominator={expense.filter((c) => c.agencyAcronym === br.agencyAcronym).length} k={`${props.section}${br.responseId}`} key={`${props.section}${br.responseId}`} />
 									)
 									
 							}
