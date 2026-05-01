@@ -3,7 +3,7 @@ export default function Disclaimer() {
     <>
       <p><u>Disclaimer</u></p>
 
-      <p>This report represents the Statements of Community District Needs and Community Board Budget Requests of this Community District for Fiscal Year 2025. This report contains the formatted but otherwise unedited content provided by the community board.</p>
+      <p>This report represents the Statements of Community District Needs and Community Board Budget Requests of this Community District for Fiscal Year 2027. This report contains the formatted but otherwise unedited content provided by the community board.</p>
 
       <p><em>Budget Requests:</em> Listed for informational purposes only. OMB remains the definitive source on budget requests and budget request responses.</p>
 

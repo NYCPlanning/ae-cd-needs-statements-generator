@@ -3,27 +3,41 @@
 import SectionHeader from "./section_header"
 
 export default function NeedsGroupBudgetRequestsList(props) {
-	const totalCapitalRequests = props.brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport !== "Continued Support"))).length;
-	const totalExpenseRequests = props.brs.filter((request) => request.type === "Expense").length;
+	// Changed totals for FY27, now boards sort by agency
+	// const totalCapitalRequests = props.brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport !== "Continued Support"))).length;
+	const totalCapitalRequests = props.brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport !== "Continued Support"))).reduce(((acc, curr) => {
+		var newAcc = { ...acc }
+		if(acc[curr.agencyAcronym]) { newAcc[curr.agencyAcronym]++ }
+		else { newAcc[curr.agencyAcronym] = 1 }
+		return newAcc;
+	}), {})
+
+	// const totalExpenseRequests = props.brs.filter((request) => request.type === "Expense").length;
+	const totalExpenseRequests = props.brs.filter((request) => request.type === "Expense").reduce(((acc, curr) => {
+		var newAcc = { ...acc }
+		if(acc[curr.agencyAcronym]) { newAcc[curr.agencyAcronym]++ }
+		else { newAcc[curr.agencyAcronym] = 1 }
+		return newAcc;
+	}), {})
 
 	// Filter the list of brs to the section, if necessary
 	const brs = props.section ? props.brs.filter((request) => request.policyArea === props.section) : props.brs;
 
-	const capital = brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport !== "Continued Support"))).sort((a, b) => a.currentFYRanking - b.currentFYRanking);
-	const continuedSupport = brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport === "Continued Support"))).sort((a, b) => a.currentFYRanking - b.currentFYRanking);
-	const expense = brs.filter((request) => request.type === "Expense").sort((a, b) => a.currentFYRanking - b.currentFYRanking);
+	const capital = brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport !== "Continued Support"))).sort((a, b) => a.currentFYRanking - b.currentFYRanking).sort((a, b) => a.agencyAcronym.localeCompare(b.agencyAcronym));
+	const continuedSupport = brs.filter((request) => ((request.type === "Capital") && (request.continuedSupport === "Continued Support"))).sort((a, b) => a.currentFYRanking - b.currentFYRanking).sort((a, b) => a.agencyAcronym.localeCompare(b.agencyAcronym));
+	const expense = brs.filter((request) => request.type === "Expense").sort((a, b) => a.currentFYRanking - b.currentFYRanking).sort((a, b) => a.agencyAcronym.localeCompare(b.agencyAcronym));
 
 	return (
 		<>
-			<p style={{fontStyle: "italic"}}>Note: Please see Section 7 for the full content of each request</p>
+			<p style={{fontStyle: "italic"}}>Note: Please see Section 7 for the full content of each request. Requests are prioritized by agency.</p>
 			<SectionHeader fontSize="1.25rem" sectionName="Capital Budget Requests" noBorder={true} />
 
 			<div className="widget-requests">
 				{	(capital.length || continuedSupport.length) ? (
 					<table className="table widget_request_table" style={{tableLayout: "fixed"}}>
 						<thead><tr>
-							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
 							<th style={{padding: "0.25rem 0.75rem", width: "12%"}}>Agency</th>
+							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
 							<th style={{padding: "0.25rem 0.75rem"}}>Title</th>
 						</tr></thead>
 						<tbody>
@@ -31,8 +45,8 @@ export default function NeedsGroupBudgetRequestsList(props) {
 								capital.map((br, i) =>
 									// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${capital.length}`} k={`${props.section}${br.responseId}`} />
 									<tr key={`${props.section}${br.responseId}`} id={`${br.responseId}-abbreviated`}>
-										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{`${br.currentFYRanking} / ${totalCapitalRequests}`}</a></td>
 										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}><a href={`#${br.responseId}-full`}>{br.agencyAcronym}</a></td>
+										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{`${br.currentFYRanking} / ${totalCapitalRequests[br.agencyAcronym]}`}</a></td>
 										<td style={{padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{br.budgetRequestTitle}</a></td>
 									</tr>
 								)
@@ -41,8 +55,8 @@ export default function NeedsGroupBudgetRequestsList(props) {
 								continuedSupport.map((br, i) =>
 									// <NeedsGroupBudgetRequest br={br} priority={`CS`} k={`${props.section}${br.responseId}`} />
 									<tr key={`${props.section}${br.responseId}`} id={`${br.responseId}-abbreviated`} className="abbreviated-request-list">
-										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>CS</a></td>
 										<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}><a href={`#${br.responseId}-full`}>{br.agencyAcronym}</a></td>
+										<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>CS</a></td>
 										<td style={{padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{br.budgetRequestTitle}</a></td>
 									</tr>
 								)
@@ -61,8 +75,8 @@ export default function NeedsGroupBudgetRequestsList(props) {
 					<table className="table widget_request_table" style={{tableLayout: "fixed"}}>
 						
 						<thead><tr>
-							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
 							<th style={{padding: "0.25rem 0.75rem", width: "12%"}}>Agency</th>
+							<th width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}>Priority</th>
 							<th style={{padding: "0.25rem 0.75rem"}}>Title</th>
 						</tr></thead>
 						<tbody>
@@ -71,8 +85,8 @@ export default function NeedsGroupBudgetRequestsList(props) {
 									expense.map((br, i) =>
 										// <NeedsGroupBudgetRequest br={br} priority={`${i+1} / ${expense.length}`} k={`${props.section}${br.responseId}`} />
 										<tr key={`${props.section}${br.responseId}`} id={`${br.responseId}-abbreviated`}>
-											<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{`${br.currentFYRanking} / ${totalExpenseRequests}`}</a></td>
 											<td style={{textAlign: "center", padding: "0.25rem 0.75rem", width: "12%"}}><a href={`#${br.responseId}-full`}>{br.agencyAcronym}</a></td>
+											<td width="12%" style={{textAlign: "center", padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{`${br.currentFYRanking} / ${totalExpenseRequests[br.agencyAcronym]}`}</a></td>
 											<td style={{padding: "0.25rem 0.75rem"}}><a href={`#${br.responseId}-full`}>{br.budgetRequestTitle}</a></td>
 										</tr>
 									)

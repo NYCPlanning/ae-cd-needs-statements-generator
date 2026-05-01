@@ -1,71 +1,48 @@
 // Based upon templates/dcp/widgets/requests_widget_main.html.twig
+import getLocation from "../helpers/get_location";
 
-function getLocation(br) {
-  var loc = "";
-  if (br.siteAddress) {
-    loc += br.siteAddress;
-  }
-  if (br.siteSiteName) {
-    loc += loc.length ? " - " + br.siteSiteName : br.siteSiteName;
-  }
-  if (br.siteFacilityName) {
-    loc += loc.length ? " - " + br.siteFacilityName : br.siteFacilityName;
-  }
-  if (br.siteOnStreet) {
-    loc += loc.length ? " - " + br.siteOnStreet : br.siteOnStreet;
-  }
-  if (br.siteCrossStreet1) {
-    if (br.siteCrossStreet2) {
-      loc += loc.length ? " - " + br.siteCrossStreet1 + " & " + br.siteCrossStreet2 : br.siteCrossStreet1 + " & " + br.siteCrossStreet2;
-    } else {
-      loc += loc.length ? " - " + br.siteCrossStreet1 : br.siteCrossStreet1;
-    }
-  }
-  if (br.siteStreetSegmentCrossStreet1) {
-    if (br.siteStreetSegmentCrossStreet2) {
-      loc += loc.length ? " - " + br.siteStreetSegmentCrossStreet1 + " & " + br.siteStreetSegmentCrossStreet2 : br.siteStreetSegmentCrossStreet1 + " & " + br.siteStreetSegmentCrossStreet2;
-    } else {
-      loc += loc.length ? " - " + br.siteStreetSegmentCrossStreet1 : br.siteStreetSegmentCrossStreet1;
-    }
-  }
-  if (br.siteStreetSegmentSide) {
-    loc += loc.length ? " (" + br.siteStreetSegmentSide + ")" : "(" + br.siteStreetSegmentSide + ")";
-  }
-  if (br.siteIntersectionStreetName) {
-    loc += loc.length ? " - " + br.siteIntersectionStreetName : br.siteIntersectionStreetName;
-  }
-  if (br.siteIntersectionStreet1) {
-    if (br.siteIntersectionStreet2) {
-      loc += loc.length ? " - " + br.siteIntersectionStreet1 + " & " + br.siteIntersectionStreet2 : br.siteIntersectionStreet1 + " & " + br.siteIntersectionStreet2;
-    } else {
-      loc += loc.length ? " - " + br.siteIntersectionStreet1 : br.siteIntersectionStreet1;
-    }
-  }
-  if (br.siteIntersectionCompassDirection) {
-    loc += loc.length ? " (" + br.siteIntersectionCompassDirection + ")" : "(" + br.siteIntersectionCompassDirection + ")";
-  }
-
-  return loc;
-}
+const LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
 export default function BudgetRequest(props) {
   const location = (props.br.siteSpecific === "Yes") ? (getLocation(props.br)) : false;
 
   return(
     <>
-      <tr key={props.k} id={`${props.br.responseId}-full`}>
-        <td width="15%"><a href={`#${props.br.responseId}-abbreviated`}>{props.br.budgetRequestTitle}</a></td>
-        <td width="10%"><a href={`#${props.br.responseId}-abbreviated`}>{props.priority}</a></td>
-        <td width="10%"><a href={`#${props.br.responseId}-abbreviated`}>{props.br.agencyAcronym}</a></td>
-        <td width="21%"><a href={`#${props.br.responseId}-abbreviated`}><b>{props.br.request}</b></a></td>
-        <td>
-          <a href={`#${props.br.responseId}-abbreviated`}>
-            {location ? `Location: ${location}` : ""}
-            {location ?  (<br />) : null}
-            <i>{props.br.explanation}</i>
-          </a>
-        </td>
-      </tr>
+      <div key={props.k} id={`${props.br.responseId}-full`} style={{border: "1px solid #cc6b39", breakInside: "avoid"}} className="mb-4 p-2" >
+        <div style={{width: "100%", fontSize: "1rem", fontWeight: "700", display: "flex"}}>
+          <div style={{width: "5rem", textAlign: "center"}}>
+            <a href={`#${props.br.responseId}-abbreviated`}>
+              {props.priorityNumerator}
+              {props.priorityDenominator && (<span style={{fontWeight: "600", color: "gray"}}> of {props.priorityDenominator}</span>)}
+            </a>
+            {/* <a href={`#${props.br.responseId}-abbreviated`}>{props.priority}</a> */}
+          </div>
+          <div style={{width: "100%", display: "flex", justifyContent: "space-between", paddingLeft: "0.5rem"}}>
+            <div><a href={`#${props.br.responseId}-abbreviated`}>{props.br.budgetRequestTitle}</a></div>
+            <div style={{minWidth: "5rem", paddingLeft: "1rem", textAlign: "end"}}><a href={`#${props.br.responseId}-abbreviated`}>{props.br.agencyAcronym}</a></div>
+          </div>
+        </div>
+        <div style={{width: "100%", display: "flex", borderBottom: "1px solid #cc6b39"}}>
+          <p style={{fontSize: "0.9rem", paddingLeft: "5rem", marginBottom: "0.5rem"}}>{props.br.request}</p>
+        </div>
+        <div style={{width: "100%", display: "flex", fontSize: "0.9rem", marginTop: "0.5rem"}}>
+          <div style={{width: "100%", display: "flex"}}>
+            <p style={{marginBottom: "0"}}>
+              {location ? `Location: ${location}` : ""}
+              {location ?  (<br />) : null}
+              {props.br.explanation}
+            </p>
+          </div>
+          {/* <div style={{width: "40%", overflowWrap: "break-word", paddingLeft: "1rem"}}>
+            <p>
+              <i>
+                Agency Response: {props.br.currentFYAgencyCategoryResponse ? props.br.currentFYAgencyCategoryResponse : LOREM_IPSUM} {props.br.currentFYAgencyResponse ? props.br.currentFYAgencyResponse : LOREM_IPSUM}
+              </i>
+            </p>
+          </div>   */}
+        </div>
+
+      </div>
     </>
   )
 

@@ -21,13 +21,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 
 ## Exporting the data
-You will need to export the data for both the Needs Statements and the Budget Request forms.  To do so, in Alchemer select the corresponding survey, and go to Results -> Exports -> CSV / Excel -> Download All Data Now!
+Before beginning this, you must make sure you have updated the `currentFYRanking` field in the Budget Requests to reflect the proper ranking for the year.  See the README for ae-cdneeds-alchemer for instructions.
+
+You will need to export the data for both the Needs Statements and the Budget Request forms.
+
+The data for the Needs Statements cannot be exported as a CSV, as the resulting file will not reflect newline characters.  There is a survey called [CD Needs Statement Responses](https://survey.alchemer.com/s3/8110481/CD-Needs-Statement-Responses) which will provide a JSON string - click the button to copy the string and paste it into a .JSON file.  (NOTE: Make sure the script is pulling from the correct survey.)
+
+To export the budget requests, select the corresponding survey in Alchemer, and go to Results -> Exports -> CSV / Excel -> Download All Data Now!
 
 ## Editing the CSVs
 
 - Use `variablenamelookups.xlsx` to replace the variable names in the csvs
   - Any blanks should be removed
-- Add in `boro`, `boardNumber`, and `agencyAcronym` columns
+- Add in `boro`, `borough`, `boardNumber`, and `agencyAcronym` columns
 - In the budget requests, remove items where:
   - `Status` is not `Complete`
   - `isDeleted` is `TRUE`
@@ -42,3 +48,6 @@ Console error "Warning: Expected server HTML to contain a matching `<i>` in `<a>
 
 ## Usage
 Open the site in Safari (the links in the Table of Contents do not work if exporting from other browsers).  If there is a toast notification in the bottom left about errors, close it before hitting print or there will be shading at the top of each page.  Select the community district from the drop-down and hit the "Print" button at the bottom of the page.  At the bottom of the print menu, make sure PDF is selected, and then hit print.
+
+## Adding the cover pages
+This is done manually by the Capital Planning and Support (CAPS) team.

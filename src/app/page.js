@@ -1,8 +1,12 @@
 'use client'
 
+const INCLUDE_AGENCY_RESPONSES = true;
+
 import { useState } from "react";
-let allStatements = require("/public/jsondata/statements.json");
-let allBudgetRequests = require("/public/jsondata/brs.json");
+// let allStatements = require("/public/jsondata/statements.json");
+let allStatements = require("/public/jsondata/FY2027-statements 2025-12-10 (Final without Responses).json");
+// let allBudgetRequests = require("/public/jsondata/brs.json");
+let allBudgetRequests = require("/public/jsondata/FY27 CBBRs after Agency Responses 2026-02-27 (Edited).json");
 import PageBreak from "./templates/page_break";
 import SectionHeader from "./templates/section_header";
 import Introduction from "./templates/static/introduction";
@@ -15,10 +19,12 @@ import CommunityDistrictOverview from "./templates/community_district_overview";
 import Top3Issues from "./templates/top_3_issues";
 import NeedsGroup from "./templates/needs_group";
 import BudgetRequestsList from "./templates/budget_requests_list";
+import BudgetRequestsListWithAgencyResponses from "./templates/budget_requests_list_with_agency_responses";
 import NeedsGroupBudgetRequestsList from "./templates/needs_group_budget_requests_list";
 
 export default function Home() {
-  const [selectedCB, setSelectedCB] = useState("SI99");
+  // const [selectedCB, setSelectedCB] = useState("SI99");
+  const [selectedCB, setSelectedCB] = useState("MN11");
   const cb = allStatements.find((statement) => statement.communityBoardID === selectedCB);
   const brs = allBudgetRequests.filter((request) => request.communityBoardID === selectedCB);
 
@@ -139,7 +145,12 @@ export default function Home() {
         <PageBreak />
 
         <SectionHeader sectionName="7. Summary of Prioritized Budget Requests" id="summary_of_prioritized_budget_requests" />
-          <BudgetRequestsList brs={brs} />
+          {
+            INCLUDE_AGENCY_RESPONSES ?
+            (<BudgetRequestsListWithAgencyResponses brs={brs} />) :
+            (<BudgetRequestsList brs={brs} />)
+          }
+          {/* <BudgetRequestsList brs={brs} /> */}
         <PageBreak />
 
         {/* {% for widget in widgets %}
